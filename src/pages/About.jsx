@@ -2,6 +2,7 @@ import Skills from "../components/Skills";
 import { portfolioData } from "../data/portfolioData";
 import { Reveal } from "../components/Reveal";
 import { motion } from "framer-motion";
+import { getAssetUrl } from "../utils/assetHelper";
 
 export default function About() {
     const { about } = portfolioData;
@@ -25,7 +26,7 @@ export default function About() {
                                     <motion.img
                                         whileHover={{ scale: 1.05 }}
                                         transition={{ duration: 0.8 }}
-                                        src={about.image}
+                                        src={getAssetUrl(about.image)}
                                         alt={portfolioData.hero.name}
                                         className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700"
                                     />

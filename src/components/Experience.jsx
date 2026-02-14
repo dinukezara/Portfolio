@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { portfolioData } from "../data/portfolioData";
 import { Reveal } from "./Reveal";
+import { getAssetUrl } from "../utils/assetHelper";
 
 export default function Experience() {
   const { experience } = portfolioData;
@@ -28,7 +29,7 @@ export default function Experience() {
                 whileHover={{ scale: 1.05, y: -10 }}
                 className="flex-shrink-0 w-96 h-56 rounded-[32px] overflow-hidden border border-white/10 glass shadow-2xl shadow-purple-500/5 transition-all duration-700"
               >
-                <img src={img} alt="Experience" className="w-full h-full object-cover" />
+                <img src={getAssetUrl(img)} alt="Experience" className="w-full h-full object-cover" />
               </motion.div>
             ))}
           </div>

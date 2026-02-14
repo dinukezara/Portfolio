@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { portfolioData } from "../data/portfolioData";
 import { Reveal } from "./Reveal";
+import { getAssetUrl } from "../utils/assetHelper";
 
 export default function Projects() {
   const { projects } = portfolioData;
@@ -30,7 +31,7 @@ export default function Projects() {
                   <motion.img
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.8 }}
-                    src={p.image}
+                    src={getAssetUrl(p.image)}
                     alt={p.title}
                     className="w-full h-full object-cover"
                   />

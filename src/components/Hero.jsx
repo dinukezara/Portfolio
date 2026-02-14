@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { portfolioData } from "../data/portfolioData";
 import { Reveal } from "./Reveal";
+import { getAssetUrl } from "../utils/assetHelper";
 
 export default function Hero() {
   const { hero } = portfolioData;
@@ -89,7 +90,7 @@ export default function Hero() {
             <motion.img
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.8 }}
-              src="/images/profile.png"
+              src={getAssetUrl(hero.profileImage)}
               alt={hero.name}
               className="w-full h-full object-cover object-top grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
             />
