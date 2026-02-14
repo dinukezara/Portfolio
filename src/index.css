@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+:root {
+    --font-outfit: 'Outfit', sans-serif;
+    --font-inter: 'Inter', sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: var(--font-outfit);
+    background-color: #070313;
+    color: white;
+}
+
+@media (min-width: 768px) {
+
+    html,
+    body,
+    a,
+    button,
+    .cursor-pointer {
+        cursor: none !important;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    @apply antialiased selection:bg-purple-500/20 selection:text-white;
+}
+
+h1,
+h2,
+h3,
+h4,
+.brand-font {
+    font-family: var(--font-outfit);
+}
+
+p,
+span,
+div,
+a {
+    font-family: var(--font-inter);
+}
+
+.glass {
+    @apply backdrop-blur-2xl bg-white/[0.03] border border-white/10 shadow-[0_8px_32px_0_rgba(0, 0, 0, 0.37)];
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #070313;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1a1528;
+    border-radius: 5px;
+    border: 2px solid #070313;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2a2538;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: scroll 40s linear infinite;
+}
+
+/* Timeline Styles */
+.timeline-line {
+    @apply absolute left-[21px] md:left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2 bg-gradient-to-b from-purple-500/50 via-fuchsia-500/20 to-transparent;
+}
+
+.timeline-dot {
+    @apply absolute left-[21px] md:left-1/2 top-10 w-4 h-4 rounded-full -translate-x-1/2 z-10 bg-purple-500 shadow-[0_0_15px_rgba(168, 85, 247, 0.5)] border-4 border-[#070313];
+}
