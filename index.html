@@ -11,6 +11,23 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="/src/index.css" />
+
+  <!-- GitHub Pages SPA routing fix (supports deep links like /Portfolio/about) -->
+  <script>
+    (function (l) {
+      if (l.search && l.search[1] === '/') {
+        var decoded = l.search
+          .slice(1)
+          .split('&')
+          .map(function (s) {
+            return s.replace(/~and~/g, '&');
+          })
+          .join('?');
+
+        window.history.replaceState(null, null, l.pathname.replace(/\/$/, '') + decoded + l.hash);
+      }
+    })(window.location);
+  </script>
 </head>
 
 <body>

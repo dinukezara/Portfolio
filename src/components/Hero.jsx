@@ -47,7 +47,7 @@ export default function Hero() {
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href={hero.cvUrl}
+                href={getAssetUrl(hero.cvUrl)}
                 download="Dinuka_Withanage_CV.pdf"
                 className="px-8 py-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 font-bold transition-colors flex items-center gap-2"
               >
