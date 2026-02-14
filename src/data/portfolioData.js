@@ -14,8 +14,8 @@ export const portfolioData = {
         name: "Dinuka Withanage",
         role: "Data Scientist & Software Engineer",
         description: "I’m a Data Scientist and Software Engineer specializing in building intelligent, scalable applications. I combine machine learning, data analysis, and full-stack development to transform raw data into meaningful digital solutions.",
-        profileImage: "/images/profile.png",
-        cvUrl: "/CV.pdf", // Add your CV link here (e.g., "/cv.pdf" or a Google Drive link)
+        profileImage: "images/profile.png",
+        cvUrl: "CV.pdf", // Add your CV link here (e.g., "/cv.pdf" or a Google Drive link)
         tags: ["React", "Node.js", "MySQL", "Python", "ML Basics"],
     },
     about: {
@@ -23,7 +23,7 @@ export const portfolioData = {
         description1: "I am an undergraduate in the Department of Computer Science and Engineering at the University of Moratuwa, currently specializing in the Data Science stream. I am passionate about combining software engineering with data-driven technologies to build intelligent and scalable systems.",
         description2: "My interests lie in machine learning, data analysis, and full-stack development. I enjoy transforming complex data into meaningful insights and developing practical software solutions that solve real-world problems.",
         description3: "With a strong foundation in computer science and a commitment to continuous learning, I strive to build innovative, efficient, and impactful digital solutions.",
-        image: "/images/profile.png",
+        image: "images/profile.png",
     },
     projects: [
         {
@@ -33,7 +33,7 @@ export const portfolioData = {
             desc: "Wildlife education & recognition platform with auth, species DB, quizzes, events, AI image recognition, leaderboard, dashboard, and species mapping.",
             live: "#",
             github: "https://github.com/dinukezara/wildguard_",
-            image: "/images/WildGuard.jpg", // Placeholder: Add path like "/images/wildguard.jpg"
+            image: "images/WildGuard.jpg", // Placeholder: Add path like "/images/wildguard.jpg"
         },
         {
             id: 2,
@@ -42,7 +42,7 @@ export const portfolioData = {
             desc: "Full-stack e-commerce platform with role-based access, product variants, cart, and order management.",
             live: "#",
             github: "https://github.com/dinukezara/BrightBuy",
-            image: "/images/brightbuy.jpg", // Placeholder: Add path like "/images/brightbuy.jpg"
+            image: "images/brightbuy.jpg", // Placeholder: Add path like "/images/brightbuy.jpg"
         },
     ],
     experience: [
@@ -51,7 +51,7 @@ export const portfolioData = {
             org: "Binara Padura 4.0 (Rotaract UOM)",
             year: "2025",
             note: "Partnership pitching committee",
-            images: "/images/binara.jpeg",
+            images: "images/binara.jpeg",
         },
         {
             role: "Organizing Committee",
@@ -73,18 +73,18 @@ export const portfolioData = {
         },
     ],
     experiencePhotos: [
-        "/images/binara.jpeg",
-        "/images/HTG1.jpeg",
-        "/images/HTG2.jpeg",
-        "/images/HTG3.jpeg",
-        "/images/HTG4.jpeg",
-        "/images/HTG5.jpeg",
-        "/images/HTG6.jpeg",
-        "/images/CD1.jpeg",
-        "/images/CD2.jpeg",
-        "/images/CD3.jpeg",
-        "/images/CD4.jpeg",
-        "/images/CD5.jpeg",
+        "images/binara.jpeg",
+        "images/HTG1.jpeg",
+        "images/HTG2.jpeg",
+        "images/HTG3.jpeg",
+        "images/HTG4.jpeg",
+        "images/HTG5.jpeg",
+        "images/HTG6.jpeg",
+        "images/CD1.jpeg",
+        "images/CD2.jpeg",
+        "images/CD3.jpeg",
+        "images/CD4.jpeg",
+        "images/CD5.jpeg",
 
     ],
     skills: ["React", "Node.js", "Express", "MySQL", "Python", "Git/GitHub", "ML Basics", "javascript", "html", "css"],
