@@ -1,63 +1,52 @@
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Home, User, Briefcase, Folder, Mail, Trophy } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
 export default function Navbar() {
   const location = useLocation();
 
   const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Experience", path: "/experience" },
-    { name: "Projects", path: "/projects" },
-    { name: "Contact", path: "/contact" },
+    { name: "Home", path: "/", icon: Home },
+    { name: "About", path: "/about", icon: User },
+    { name: "Experience", path: "/experience", icon: Briefcase },
+    { name: "Projects", path: "/projects", icon: Folder },
+    { name: "Achievements", path: "/achievements", icon: Trophy },
+    { name: "Contact", path: "/contact", icon: Mail },
   ];
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-2xl bg-[#070313]/70 border-b border-white/5">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          className="flex items-center gap-3"
-        >
-          <div className="h-10 w-10 rounded-2xl bg-gradient-to-br from-purple-600 to-fuchsia-600 grid place-items-center font-black text-xl shadow-lg shadow-purple-500/20">
-            {portfolioData.hero.name.charAt(0)}
-          </div>
-          <Link to="/" className="font-black text-xl tracking-tight brand-font hidden sm:block">
-            {portfolioData.hero.name}
-          </Link>
-        </motion.div>
+    <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-fit">
+      <nav className="glass rounded-full px-4 py-2 flex items-center gap-2 border border-white/10 shadow-2xl backdrop-blur-xl">
+        {navLinks.map((link) => {
+          const isActive = location.pathname === link.path;
+          const Icon = link.icon;
 
-        <nav className="hidden md:flex items-center gap-8 font-medium">
-          {navLinks.map((link) => (
+          return (
             <Link
               key={link.path}
               to={link.path}
-              className={`relative py-2 text-sm transition-all duration-300 ${location.pathname === link.path ? "text-white" : "text-white/60 hover:text-white/90"
-                }`}>
-              {link.name}
-              {location.pathname === link.path && (
+              className={`relative px-4 py-2 rounded-full transition-all duration-500 group flex items-center gap-2 ${isActive ? "text-white" : "text-white/50 hover:text-white"
+                }`}
+            >
+              <Icon size={18} className={`${isActive ? "text-purple-400" : ""}`} />
+              <span className="text-sm font-bold hidden sm:block">
+                {link.name}
+              </span>
+
+              {isActive && (
                 <motion.div
-                  layoutId="nav-underline"
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-500 to-fuchsia-500 rounded-full"
-                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  layoutId="active-nav"
+                  className="absolute inset-0 bg-purple-500/10 rounded-full border border-purple-500/20 -z-10"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ type: "spring", duration: 0.6 }}
                 />
               )}
             </Link>
-          ))}
-        </nav>
-
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <Link
-            to="/contact"
-            className="text-sm px-6 py-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 font-bold transition-all hover:border-purple-500/30 shadow-inner">
-            Hire Me
-          </Link>
-        </motion.div>
-      </div>
+          );
+        })}
+      </nav>
     </header>
   );
 }

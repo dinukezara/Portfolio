@@ -70,7 +70,7 @@ export default function About() {
                                         <h3 className="text-xs font-black uppercase tracking-[0.4em] text-white/30">Technical Expertise</h3>
                                         <div className="h-px flex-grow bg-white/5"></div>
                                     </div>
-                                    <Skills />
+                                    <Skills mode="grid" />
                                 </Reveal>
                             </div>
                         </div>

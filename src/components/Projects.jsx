@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { ExternalLink, Github, CheckCircle2 } from "lucide-react";
 import { portfolioData } from "../data/portfolioData";
 import { Reveal } from "./Reveal";
 import { getAssetUrl } from "../utils/assetHelper";
@@ -9,82 +10,91 @@ export default function Projects() {
   return (
     <section id="projects" className="py-24 lg:py-32 text-white">
       <Reveal>
-        <span className="text-purple-500 font-bold tracking-[0.4em] uppercase text-xs mb-4 block">Selected Works</span>
-        <h2 className="text-6xl sm:text-8xl font-black tracking-tighter leading-[0.9]">
-          Case <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-fuchsia-400">Studies</span>
+        <h2 className="text-5xl sm:text-7xl font-black tracking-tighter text-center mb-4">
+          Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Projects</span>
         </h2>
-        <p className="text-white/50 mt-10 text-xl max-w-2xl font-medium leading-relaxed">
-          A showcase of my commitment to precision, scalability, and user-centric design across various technical domains.
+        <p className="text-white/40 text-center max-w-2xl mx-auto text-lg font-medium mb-20">
+          A selection of projects that showcase my passion for building digital experiences.
         </p>
       </Reveal>
 
-      <div className="mt-24 grid md:grid-cols-2 gap-12">
+      <div className="space-y-32">
         {projects.map((p, index) => (
-          <Reveal key={p.id} delay={0.2 + (index * 0.1)} width="100%">
-            <motion.div
-              whileHover={{ y: -12 }}
-              className="rounded-[40px] border border-white/[0.05] bg-[#0c081a] overflow-hidden hover:border-purple-500/20 transition-all duration-500 group flex flex-col h-full shadow-2xl relative"
-            >
-              <div className="h-80 overflow-hidden relative">
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-700 z-10"></div>
-                {p.image ? (
-                  <motion.img
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.8 }}
-                    src={getAssetUrl(p.image)}
-                    alt={p.title}
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-black/20">
-                    <span className="text-white/20 text-5xl">🖼️</span>
-                  </div>
-                )}
-
-                <div className="absolute bottom-6 left-6 z-20">
-                  <span className="text-[10px] uppercase tracking-[0.3em] px-4 py-2 rounded-xl bg-[#0c081a]/90 backdrop-blur-md border border-white/10 text-white font-black shadow-2xl">
-                    {p.tag}
-                  </span>
-                </div>
+          <Reveal key={p.id} delay={0.2}>
+            <div className={`flex flex-col lg:flex-row gap-16 items-center ${index % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
+              {/* Image Side */}
+              <div className="w-full lg:w-1/2">
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.5 }}
+                  className="relative group rounded-3xl overflow-hidden border border-white/10 shadow-2xl glass aspect-video"
+                >
+                  {p.image ? (
+                    <img
+                      src={getAssetUrl(p.image)}
+                      alt={p.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-white/5 flex items-center justify-center text-5xl">🖼️</div>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#070313] via-transparent to-transparent opacity-60"></div>
+                </motion.div>
               </div>
 
-              <div className="p-10 flex flex-col flex-grow relative z-20">
-                <h3 className="text-3xl font-black group-hover:text-purple-400 transition-colors leading-tight tracking-tight">{p.title}</h3>
+              {/* Info Side */}
+              <div className="w-full lg:w-1/2">
+                <div className="flex items-center gap-4 mb-6">
+                  <span className="px-4 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-bold uppercase tracking-widest">
+                    {p.tag}
+                  </span>
+                  <span className="text-white/20 text-xs font-bold">2024 - 2025</span>
+                </div>
 
-                <p className="mt-6 text-white/40 text-lg leading-relaxed font-medium flex-grow">
+                <h3 className="text-4xl sm:text-5xl font-black mb-6 leading-tight tracking-tight">
+                  {p.title}
+                </h3>
+
+                <p className="text-white/50 text-lg leading-relaxed mb-8 font-medium">
                   {p.desc}
                 </p>
 
-                <div className="mt-12 flex items-center justify-between">
-                  <div className="flex gap-6">
-                    <motion.a
-                      whileHover={{ opacity: 0.7 }}
-                      href={p.github}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-xs font-black uppercase tracking-[0.2em] text-white/30 border-b border-white/10 pb-1">
-                      Check Source
-                    </motion.a>
-                    {p.live !== "#" && (
-                      <motion.a
-                        whileHover={{ opacity: 0.7 }}
-                        href={p.live}
-                        className="text-xs font-black uppercase tracking-[0.2em] text-purple-400 border-b border-purple-400/30 pb-1">
-                        Live Preview
-                      </motion.a>
-                    )}
-                  </div>
+                <div className="mb-10">
+                  <h4 className="flex items-center gap-2 text-sm font-black uppercase tracking-widest text-white/80 mb-4">
+                    <CheckCircle2 size={16} className="text-purple-400" /> Key Features
+                  </h4>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {["Modern UI/UX Design", "Responsive Layout", "High Performance", "Scalable Architecture"].map((feat, i) => (
+                      <li key={i} className="flex items-center gap-2 text-white/40 text-sm font-medium">
+                        <span className="h-1 w-1 rounded-full bg-purple-500"></span>
+                        {feat}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-                  <motion.div
-                    initial={{ x: -10, opacity: 0 }}
-                    whileHover={{ x: 0, opacity: 1 }}
-                    className="h-10 w-10 rounded-full border border-purple-500/30 flex items-center justify-center text-purple-400"
+                <div className="flex flex-wrap gap-4 pt-6 border-t border-white/5">
+                  <motion.a
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    href={p.live}
+                    className="px-8 py-3 rounded-xl bg-white text-black font-black flex items-center gap-2 shadow-xl"
                   >
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-                  </motion.div>
+                    <ExternalLink size={18} /> Live Demo
+                  </motion.a>
+                  <motion.a
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    href={p.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-8 py-3 rounded-xl bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-white/10 font-bold flex items-center gap-2 transition-all"
+                  >
+                    <Github size={18} /> Source Code
+                  </motion.a>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </Reveal>
         ))}
       </div>

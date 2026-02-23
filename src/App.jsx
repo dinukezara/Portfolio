@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Experience from "./pages/Experience";
 import Projects from "./pages/Projects";
+import Achievements from "./pages/Achievements";
 import Contact from "./pages/Contact";
 import CustomCursor from "./components/CustomCursor";
 
@@ -14,7 +15,7 @@ export default function App() {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen text-white bg-[#070313] relative overflow-hidden flex flex-col font-sans cursor-none">
+    <div className="min-h-screen text-white bg-[#070313] relative overflow-hidden flex flex-col font-sans">
       <CustomCursor />
       {/* Dynamic Background Blobs */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
@@ -73,6 +74,7 @@ export default function App() {
               <Route path="/about" element={<About />} />
               <Route path="/experience" element={<Experience />} />
               <Route path="/projects" element={<Projects />} />
+              <Route path="/achievements" element={<Achievements />} />
               <Route path="/contact" element={<Contact />} />
             </Routes>
           </motion.div>

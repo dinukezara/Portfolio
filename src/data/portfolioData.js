@@ -33,7 +33,7 @@ export const portfolioData = {
             desc: "Wildlife education & recognition platform with auth, species DB, quizzes, events, AI image recognition, leaderboard, dashboard, and species mapping.",
             live: "#",
             github: "https://github.com/dinukezara/wildguard_",
-            image: "/images/WildGuard.jpg", // Placeholder: Add path like "/images/wildguard.jpg"
+            image: "/images/WildGuard.png", // Placeholder: Add path like "/images/wildguard.jpg"
         },
         {
             id: 2,
@@ -42,10 +42,45 @@ export const portfolioData = {
             desc: "Full-stack e-commerce platform with role-based access, product variants, cart, and order management.",
             live: "#",
             github: "https://github.com/dinukezara/BrightBuy",
-            image: "/images/brightbuy.jpg", // Placeholder: Add path like "/images/brightbuy.jpg"
+            image: "/images/brightbuy.png", // Placeholder: Add path like "/images/brightbuy.jpg"
+        },
+        {
+            id: 3,
+            title: "Nano Processor Implementation on Basys 3 FPGA",
+            tag: "FPGA",
+            desc: "A custom FPGA-based nano-processor designed using hardware description languages (Verilog/VHDL) and Vivado to implement core components like registers, ALU, and control logic for executing basic instructions.",
+            live: "#",
+            github: "https://github.com/dinukezara/Nano_processor",
+            image: "/images/Nano.png",
+        },
+        {
+            id: 4,
+            title: "Advanced Cricket Predictor",
+            tag: "AI • Full-Stack • Cricket Analytics",
+            desc: "An AI-powered cricket match prediction app that provides match outcome predictions with win probabilities, confidence scores, score forecasts, and factor-based analysis using real fixtures data.",
+            live: "#",
+            github: "https://github.com/dinukezara/Advanced_Cricket_Predictor",
+            image: "/images/Advanced_Cricket_Predictor.png",
         },
     ],
-    experience: [
+
+    societies: [
+        {
+            role: "Committee Member",
+            org: "CSE Student Society",
+            year: "2025 -2026",
+            note: "Finance Committee",
+            images: "/images/CSESS.jpeg",
+        },
+        {
+            role: "Committee Member",
+            org: "IEEE Computer Society",
+            year: "2026 - 2027",
+            note: "Event Committee",
+            images: "/images/IEEE_CS.jpeg",
+        },
+    ],
+    events: [
         {
             role: "Committee Member",
             org: "Binara Padura 4.0 (Rotaract UOM)",
@@ -58,18 +93,28 @@ export const portfolioData = {
             org: "Gammaddata IEEE API 4.0",
             year: "2025",
             note: "Conducted Python session for school students",
+            images: "/images/IEEE_Gammadda.png",
         },
         {
             role: "Committee Member",
             org: "Hit the Ground",
             year: "2026",
-            note: "Programme & Logistic Committee Member",
+            note: "Programme & Logistic Committee",
+            images: "/images/HTG0.jpeg",
         },
         {
             role: "Committee Member",
             org: "Careers Day",
             year: "2026",
-            note: "Logistic Committee Member",
+            note: "Logistic Committee",
+            images: "/images/Careers.jpeg",
+        },
+        {
+            role: "Committee Member",
+            org: "GSoC Awareness Session",
+            year: "2026",
+            note: "Event Committee",
+            images: "/images/GSoC.jpeg",
         },
     ],
     experiencePhotos: [
@@ -88,6 +133,51 @@ export const portfolioData = {
 
     ],
     skills: ["React", "Node.js", "Express", "MySQL", "Python", "Git/GitHub", "ML Basics", "javascript", "html", "css"],
+    achievements: [
+        {
+            id: 1,
+            title: "Haxtreme 4.0",
+            org: "IEEE Computer Society, University of Ruhuna",
+            year: "2025",
+            desc: "Won third place in a competitive coding hackathon by solving algorithmic challenges on HackerRank.",
+            icon: "Award"
+        },
+    ],
+    certificates: [
+        {
+            id: 1,
+            title: "Introduction to Machine Learning",
+            org: "Kaggle",
+            year: "2026",
+            url: "https://www.kaggle.com/learn/intro-to-machine-learning",
+            image: "/images/Intro_to_Machine_Learning.png"
+        },
+        {
+            id: 2,
+            title: "Pandas",
+            org: "Kaggle",
+            year: "2026",
+            url: "https://www.kaggle.com/learn/pandas",
+            image: "/images/Pandas.png"
+        },
+        {
+            id: 3,
+            title: "Data Cleaning",
+            org: "Kaggle",
+            year: "2026",
+            url: "https://www.kaggle.com/learn/data-cleaning",
+            image: "/images/Data_Cleaning.png"
+        },
+        {
+            id: 4,
+            title: "Feature Engineering",
+            org: "Kaggle",
+            year: "2026",
+            url: "https://www.kaggle.com/learn/feature-engineering",
+            image: "/images/Feature_Engineering.png"
+        }
+    ],
+
     contact: {
         email: "dinukakeshara55@gmail.com",
         github: "dinukezara",

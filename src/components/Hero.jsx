@@ -1,75 +1,90 @@
 import { motion } from "framer-motion";
+import { Github, Linkedin, Mail, Download, ExternalLink, User } from "lucide-react";
 import { portfolioData } from "../data/portfolioData";
 import { Reveal } from "./Reveal";
 import { getAssetUrl } from "../utils/assetHelper";
 
 export default function Hero() {
-  const { hero } = portfolioData;
+  const { hero, contact } = portfolioData;
 
   return (
-    <section id="home" className="pt-12 sm:pt-20 pb-12 overflow-hidden">
+    <section id="home" className="pt-24 sm:pt-32 pb-12 overflow-hidden">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         <div>
           <Reveal delay={0.1}>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/80 text-xs font-medium">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-bold">
               <span className="h-2 w-2 rounded-full bg-purple-400 animate-pulse"></span>
               {hero.badge}
             </div>
           </Reveal>
 
           <Reveal delay={0.2}>
-            <h1 className="mt-6 text-5xl sm:text-6xl font-black leading-[1.1] tracking-tight text-white">
-              Hi, I’m{" "}
+            <h1 className="mt-6 text-6xl sm:text-7xl font-black leading-[1.1] tracking-tight text-white">
+              <span className="text-white/70">I'm </span>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-400 to-pink-400">
                 {hero.name}
               </span>
-              <br />
-              <span className="text-white/90">{hero.role}</span>
             </h1>
+            <h2 className="text-3xl sm:text-4xl font-bold mt-4 text-white/90">
+              {hero.role}
+            </h2>
           </Reveal>
 
           <Reveal delay={0.3}>
-            <p className="mt-6 text-white/70 text-lg leading-relaxed max-w-xl font-medium">
+            <p className="mt-6 text-white/60 text-lg leading-relaxed max-w-xl font-medium">
               {hero.description}
             </p>
           </Reveal>
 
           <Reveal delay={0.4}>
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-10 flex flex-wrap items-center gap-6">
               <motion.a
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 href="#projects"
-                className="px-8 py-4 rounded-2xl bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:shadow-[0_0_30px_-5px_rgba(168,85,247,0.5)] font-bold transition-shadow duration-300"
+                className="px-8 py-4 rounded-full bg-white text-black font-black flex items-center gap-2 transition-shadow hover:shadow-[0_0_30px_-5px_rgba(255,255,255,0.4)]"
               >
-                View Projects
+                Explore Work <ExternalLink size={18} />
               </motion.a>
+
               <motion.a
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 href={getAssetUrl(hero.cvUrl)}
-                download="Dinuka_Withanage_CV.pdf"
-                className="px-8 py-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 font-bold transition-colors flex items-center gap-2"
+                target="_blank"
+                rel="noreferrer"
+                className="px-8 py-4 rounded-full border border-white/10 glass text-white font-black flex items-center gap-2 transition-all hover:bg-white/5"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
-                Download CV
+                Download CV <Download size={18} />
               </motion.a>
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                href="#contact"
-                className="px-8 py-4 rounded-2xl border border-white/10 text-white/50 hover:text-white font-bold transition-all"
-              >
-                Contact Me
-              </motion.a>
+
+              <div className="flex items-center gap-3">
+                {[
+                  { icon: Github, href: contact.githubUrl },
+                  { icon: Linkedin, href: contact.linkedinUrl },
+                  { icon: Mail, href: `mailto:${contact.email}` }
+                ].map((social, i) => (
+                  <motion.a
+                    key={i}
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    whileTap={{ scale: 0.9 }}
+                    href={social.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="h-12 w-12 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-all shadow-xl"
+                  >
+                    <social.icon size={20} />
+                  </motion.a>
+                ))}
+              </div>
             </div>
           </Reveal>
 
           <Reveal delay={0.5}>
-            <div className="mt-10 flex flex-wrap gap-2">
+            <div className="mt-12 pt-10 border-t border-white/5 flex flex-wrap gap-3">
               {hero.tags.map((t) => (
-                <span key={t} className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm font-medium hover:bg-white/10 transition-colors cursor-default">
-                  {t}
+                <span key={t} className="text-xs font-bold text-white/40 uppercase tracking-widest">
+                  {t} •
                 </span>
               ))}
             </div>
@@ -77,26 +92,40 @@ export default function Hero() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.8, rotate: -2 }}
-          whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
           viewport={{ once: true }}
-          className="relative group lg:ml-10"
+          className="relative lg:ml-auto"
         >
-          {/* Decorative rings */}
-          <div className="absolute -inset-1 rounded-[32px] bg-gradient-to-r from-purple-600 to-fuchsia-600 opacity-20 group-hover:opacity-40 blur-lg transition duration-1000 group-hover:duration-200"></div>
+          {/* Decorative glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-purple-500/20 blur-[120px] rounded-full -z-10"></div>
 
-          <div className="relative rounded-[40px] overflow-hidden border border-white/10 bg-[#0c081a] aspect-[4/5] shadow-2xl glass transition-all duration-700">
+          <div className="relative rounded-full p-2 border border-white/5 bg-[#070313] shadow-2xl overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
             <motion.img
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.8 }}
               src={getAssetUrl(hero.profileImage)}
               alt={hero.name}
-              className="w-full h-full object-cover object-top grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
+              className="w-full h-full object-cover rounded-full grayscale-[0.2] hover:grayscale-0 transition-all duration-700 aspect-square max-w-[450px]"
             />
           </div>
 
-          {/* Stats/Floating items could go here */}
+          {/* Floating Element Mockup */}
+          <motion.div
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -bottom-6 -left-6 glass px-6 py-4 rounded-2xl flex items-center gap-3 border border-white/10 shadow-2xl"
+          >
+            <div className="h-10 w-10 rounded-xl bg-purple-600 flex items-center justify-center text-white shadow-lg shadow-purple-500/50">
+              <User size={20} />
+            </div>
+            <div>
+              <p className="text-[10px] uppercase tracking-wider text-white/40 font-bold">Interactive</p>
+              <p className="text-sm font-black">User Experience</p>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
