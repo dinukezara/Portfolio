@@ -28,7 +28,7 @@ export default function About() {
                                         transition={{ duration: 0.8 }}
                                         src={getAssetUrl(about.image)}
                                         alt={portfolioData.hero.name}
-                                        className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700"
+                                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-700"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-[#0c081a] via-transparent to-transparent opacity-60"></div>
                                 </div>

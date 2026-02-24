@@ -99,17 +99,19 @@ export default function Hero() {
           className="relative lg:ml-auto"
         >
           {/* Decorative glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-purple-500/20 blur-[120px] rounded-full -z-10"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-purple-500/30 blur-[120px] rounded-full -z-10 animate-pulse"></div>
 
-          <div className="relative rounded-full p-2 border border-white/5 bg-[#070313] shadow-2xl overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-            <motion.img
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.8 }}
-              src={getAssetUrl(hero.profileImage)}
-              alt={hero.name}
-              className="w-full h-full object-cover rounded-full grayscale-[0.2] hover:grayscale-0 transition-all duration-700 aspect-square max-w-[450px]"
-            />
+          <div className="relative aspect-square rounded-full p-1.5 bg-gradient-to-tr from-purple-500 via-fuchsia-500 to-pink-500 shadow-2xl group max-w-[450px]">
+            <div className="relative w-full h-full rounded-full p-1 bg-[#070313] overflow-hidden">
+              <motion.img
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.8 }}
+                src={getAssetUrl(hero.profileImage)}
+                alt={hero.name}
+                className="w-full h-full object-cover object-top rounded-full transition-all duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+            </div>
           </div>
 
           {/* Floating Element Mockup */}
