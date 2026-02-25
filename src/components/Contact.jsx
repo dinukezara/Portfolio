@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import { portfolioData } from "../data/portfolioData";
 import { Reveal } from "./Reveal";
 
@@ -37,7 +38,6 @@ export default function Contact() {
     setTimeout(() => {
       setStatus("success");
       setFormData({ name: "", email: "", message: "" });
-      setTimeout(() => setStatus("idle"), 5000);
     }, 1500);
   };
 
@@ -73,16 +73,74 @@ export default function Contact() {
                 {status === "success" ? (
                   <motion.div
                     key="success"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    className="flex flex-col items-center justify-center py-20 text-center"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    className="flex flex-col items-center justify-center py-10 text-center"
                   >
-                    <div className="h-20 w-20 rounded-full bg-purple-500/10 flex items-center justify-center mb-8 border border-purple-500/20">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#A855F7" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                    <div className="relative mb-8">
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ type: "spring", damping: 12, stiffness: 200 }}
+                        className="h-24 w-24 rounded-full bg-purple-500/10 flex items-center justify-center border border-purple-500/20 relative z-10"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#A855F7" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                          <motion.polyline
+                            points="20 6 9 17 4 12"
+                            initial={{ pathLength: 0 }}
+                            animate={{ pathLength: 1 }}
+                            transition={{ duration: 0.5, delay: 0.2 }}
+                          />
+                        </svg>
+                      </motion.div>
+                      <motion.div
+                        animate={{
+                          scale: [1, 1.3, 1],
+                          opacity: [0.3, 0.1, 0.3]
+                        }}
+                        transition={{ duration: 3, repeat: Infinity }}
+                        className="absolute inset-0 bg-purple-500/30 blur-2xl rounded-full"
+                      />
                     </div>
-                    <h3 className="text-4xl font-black mb-4">Message Received</h3>
-                    <p className="text-white/50 text-lg">I've sent your message into the digital ether. Talk soon!</p>
+
+                    <motion.h3
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.4 }}
+                      className="text-4xl font-black mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60"
+                    >
+                      Signal Received!
+                    </motion.h3>
+
+                    <motion.p
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.5 }}
+                      className="text-white/50 text-lg max-w-sm mb-12 font-medium"
+                    >
+                      Thanks for reaching out! I've received your message and will get back to you as soon as possible.
+                    </motion.p>
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.6 }}
+                      className="flex flex-wrap justify-center gap-6"
+                    >
+                      <button
+                        onClick={() => setStatus("idle")}
+                        className="px-8 py-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all text-xs font-black uppercase tracking-widest"
+                      >
+                        Send another
+                      </button>
+                      <Link
+                        to="/"
+                        className="px-8 py-4 rounded-2xl bg-white text-[#0c081a] hover:bg-purple-500 hover:text-white transition-all text-xs font-black uppercase tracking-widest shadow-xl shadow-white/5"
+                      >
+                        Return Home
+                      </Link>
+                    </motion.div>
                   </motion.div>
                 ) : (
                   <motion.form

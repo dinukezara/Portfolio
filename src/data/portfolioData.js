@@ -12,7 +12,7 @@ export const portfolioData = {
     hero: {
         badge: "Latest UI • React Portfolio",
         name: "Dinuka Withanage",
-        role: "Data Scientist & Software Engineer",
+        role: "Undergraduate, Department of Computer Science and Engineering, University of Moratuwa",
         description: "I’m a Data Scientist and Software Engineer specializing in building intelligent, scalable applications. I combine machine learning, data analysis, and full-stack development to transform raw data into meaningful digital solutions.",
         profileImage: "/images/profile.png",
         cvUrl: "/CV.pdf", // Add your CV link here (e.g., "/cv.pdf" or a Google Drive link)
