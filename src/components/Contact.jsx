@@ -49,14 +49,14 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-24 text-white">
+    <section id="contact" className="py-24 text-[var(--text-primary)]">
       <Reveal>
-        <span className="text-purple-500 font-bold tracking-[0.4em] uppercase text-xs mb-3 block">Available for Hire</span>
+        <span className="text-purple-600 dark:text-purple-500 font-bold tracking-[0.4em] uppercase text-xs mb-3 block">Available for Hire</span>
         <h2 className="text-6xl sm:text-8xl font-black tracking-tighter leading-[0.9]">
           <span className="opacity-30">Let's</span><br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-fuchsia-500">Collaborate</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-fuchsia-600 dark:from-purple-400 dark:to-fuchsia-500">Collaborate</span>
         </h2>
-        <p className="text-white/50 mt-8 text-xl max-w-xl font-medium leading-relaxed">
+        <p className="text-[var(--text-secondary)] mt-8 text-xl max-w-xl font-medium leading-relaxed">
           I'm currently seeking new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
         </p>
       </Reveal>
@@ -64,7 +64,7 @@ export default function Contact() {
       <div className="mt-20 grid lg:grid-cols-12 gap-16">
         <div className="lg:col-span-7">
           <Reveal delay={0.2} width="100%">
-            <div className="rounded-[40px] bg-[#0c081a] border border-white/[0.05] p-12 shadow-2xl relative overflow-hidden group">
+            <div className="rounded-[40px] bg-[var(--glass-bg)] border border-[var(--glass-border)] p-12 shadow-2xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none group-hover:opacity-10 transition-opacity duration-1000">
                 <svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M22 2L11 13M22 2L15 22L11 13M11 13L2 9L22 2" /></svg>
               </div>
@@ -108,7 +108,7 @@ export default function Contact() {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.4 }}
-                      className="text-4xl font-black mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60"
+                      className="text-4xl font-black mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[var(--text-primary)] to-[var(--text-secondary)]"
                     >
                       Signal Received!
                     </motion.h3>
@@ -117,7 +117,7 @@ export default function Contact() {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.5 }}
-                      className="text-white/50 text-lg max-w-sm mb-12 font-medium"
+                      className="text-[var(--text-secondary)] text-lg max-w-sm mb-12 font-medium"
                     >
                       Thanks for reaching out! I've received your message and will get back to you as soon as possible.
                     </motion.p>
@@ -130,13 +130,13 @@ export default function Contact() {
                     >
                       <button
                         onClick={() => setStatus("idle")}
-                        className="px-8 py-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all text-xs font-black uppercase tracking-widest"
+                        className="px-8 py-4 rounded-2xl bg-[var(--text-primary)]/5 border border-[var(--glass-border)] hover:bg-[var(--text-primary)]/10 transition-all text-xs font-black uppercase tracking-widest text-[var(--text-primary)]"
                       >
                         Send another
                       </button>
                       <Link
                         to="/"
-                        className="px-8 py-4 rounded-2xl bg-white text-[#0c081a] hover:bg-purple-500 hover:text-white transition-all text-xs font-black uppercase tracking-widest shadow-xl shadow-white/5"
+                        className="px-8 py-4 rounded-2xl bg-slate-900 dark:bg-white text-white dark:text-black hover:bg-purple-600 dark:hover:bg-purple-500 hover:text-white transition-all text-xs font-black uppercase tracking-widest shadow-xl shadow-purple-500/20"
                       >
                         Return Home
                       </Link>
@@ -150,21 +150,21 @@ export default function Contact() {
                   >
                     <div className="grid md:grid-cols-2 gap-8">
                       <div className="space-y-3">
-                        <label className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 ml-1">Your Name</label>
+                        <label className="text-[10px] font-black uppercase tracking-[0.2em] text-[var(--text-secondary)] opacity-60 ml-1">Your Name</label>
                         <input
                           required
-                          className="w-full px-0 py-4 bg-transparent border-b border-white/10 outline-none focus:border-purple-500 transition-all font-medium text-lg placeholder:text-white/10"
+                          className="w-full px-0 py-4 bg-transparent border-b border-[var(--glass-border)] outline-none focus:border-purple-500 transition-all font-medium text-lg placeholder:opacity-20 text-[var(--text-primary)]"
                           placeholder="What can I call you?"
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         />
                       </div>
                       <div className="space-y-3">
-                        <label className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 ml-1">Email Address</label>
+                        <label className="text-[10px] font-black uppercase tracking-[0.2em] text-[var(--text-secondary)] opacity-60 ml-1">Email Address</label>
                         <input
                           required
                           type="email"
-                          className="w-full px-0 py-4 bg-transparent border-b border-white/10 outline-none focus:border-purple-500 transition-all font-medium text-lg placeholder:text-white/10"
+                          className="w-full px-0 py-4 bg-transparent border-b border-[var(--glass-border)] outline-none focus:border-purple-500 transition-all font-medium text-lg placeholder:opacity-20 text-[var(--text-primary)]"
                           placeholder="Where can I reach you?"
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -172,10 +172,10 @@ export default function Contact() {
                       </div>
                     </div>
                     <div className="space-y-3">
-                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 ml-1">Your Message</label>
+                      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-[var(--text-secondary)] opacity-60 ml-1">Your Message</label>
                       <textarea
                         required
-                        className="w-full px-0 py-4 bg-transparent border-b border-white/10 outline-none focus:border-purple-500 transition-all font-medium text-lg placeholder:text-white/10 min-h-[150px] resize-none"
+                        className="w-full px-0 py-4 bg-transparent border-b border-[var(--glass-border)] outline-none focus:border-purple-500 transition-all font-medium text-lg placeholder:opacity-20 text-[var(--text-primary)] min-h-[150px] resize-none"
                         placeholder="What's on your mind?"
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -186,7 +186,7 @@ export default function Contact() {
                       whileTap={{ scale: 0.98 }}
                       type="submit"
                       disabled={status === "sending"}
-                      className="inline-flex items-center gap-4 px-12 py-5 rounded-2xl bg-white text-[#070313] font-black text-lg tracking-tight hover:bg-purple-500 hover:text-white transition-all duration-300 disabled:opacity-50"
+                      className="inline-flex items-center gap-4 px-12 py-5 rounded-2xl bg-slate-900 dark:bg-white text-white dark:text-black font-black text-lg tracking-tight hover:bg-purple-600 dark:hover:bg-purple-500 hover:text-white transition-all duration-300 disabled:opacity-50 shadow-xl shadow-purple-500/10"
                     >
                       {status === "sending" ? "Sending..." : "Send it over"}
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
@@ -201,8 +201,8 @@ export default function Contact() {
         <div className="lg:col-span-5 flex flex-col justify-center">
           <Reveal delay={0.4} width="100%">
             <div className="space-y-12">
-              <div className="relative p-8 rounded-[32px] bg-white/[0.02] border border-white/5 backdrop-blur-sm group hover:border-purple-500/20 transition-all duration-500">
-                <h3 className="text-xs font-black uppercase tracking-[0.3em] text-white/30 mb-8 flex items-center gap-2">
+              <div className="relative p-8 rounded-[32px] bg-[var(--text-primary)]/[0.02] border border-[var(--glass-border)] backdrop-blur-sm group hover:border-purple-500/20 transition-all duration-500">
+                <h3 className="text-xs font-black uppercase tracking-[0.3em] text-[var(--text-secondary)] opacity-60 mb-8 flex items-center gap-2">
                   <span className="h-px w-6 bg-purple-500/30 font-black"></span>
                   Social Links
                 </h3>
@@ -214,20 +214,20 @@ export default function Contact() {
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{ y: -5 }}
-                      className="flex flex-col gap-3 group/item"
+                      className="flex flex-col gap-3 group/item text-[var(--text-primary)]"
                     >
-                      <span className="text-white/20 group-hover/item:text-purple-400 transition-colors">
+                      <span className="opacity-40 group-hover/item:text-purple-600 dark:group-hover/item:text-purple-400 group-hover/item:opacity-100 transition-all">
                         <ContactIcon label={item.label} />
                       </span>
-                      <span className="text-sm font-bold text-white group-hover/item:text-white/80 transition-colors">{item.label}</span>
+                      <span className="text-sm font-bold opacity-80 group-hover/item:opacity-100 transition-colors uppercase tracking-widest">{item.label}</span>
                     </motion.a>
                   ))}
                 </div>
               </div>
 
               <div className="p-8 rounded-[32px] bg-gradient-to-br from-purple-600/10 to-transparent border border-purple-500/10">
-                <p className="text-purple-300/60 text-base font-medium leading-relaxed">
-                  Based in <span className="text-white font-bold">{contact.location}</span>. <br />
+                <p className="text-[var(--text-secondary)] text-base font-medium leading-relaxed">
+                  Based in <span className="text-[var(--text-primary)] font-bold">{contact.location}</span>. <br />
                   Working remotely with teams worldwide.
                 </p>
               </div>
@@ -236,5 +236,6 @@ export default function Contact() {
         </div>
       </div>
     </section>
+
   );
 }

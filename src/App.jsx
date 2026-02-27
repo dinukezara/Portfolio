@@ -15,7 +15,7 @@ export default function App() {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen text-white bg-[#070313] relative overflow-hidden flex flex-col font-sans">
+    <div className="min-h-screen text-[var(--text-primary)] bg-[var(--bg-color)] relative overflow-hidden flex flex-col font-sans transition-colors duration-500">
       <CustomCursor />
       {/* Dynamic Background Blobs */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
@@ -30,7 +30,7 @@ export default function App() {
             repeat: Infinity,
             ease: "linear"
           }}
-          className="absolute -top-40 -left-40 h-[600px] w-[600px] rounded-full bg-purple-600/[0.08] blur-[120px]"
+          className="absolute -top-40 -left-40 h-[600px] w-[600px] rounded-full bg-purple-600/[0.08] dark:bg-purple-600/[0.12] blur-[120px]"
         />
         <motion.div
           animate={{
@@ -43,18 +43,18 @@ export default function App() {
             repeat: Infinity,
             ease: "linear"
           }}
-          className="absolute -bottom-40 -right-40 h-[600px] w-[600px] rounded-full bg-fuchsia-500/[0.06] blur-[120px]"
+          className="absolute -bottom-40 -right-40 h-[600px] w-[600px] rounded-full bg-fuchsia-500/[0.06] dark:bg-fuchsia-500/[0.1] blur-[120px]"
         />
         <motion.div
           animate={{
-            opacity: [0, 0.3, 0],
+            opacity: [0.1, 0.4, 0.1],
           }}
           transition={{
             duration: 10,
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[800px] w-[800px] rounded-full bg-blue-500/[0.03] blur-[150px]"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[800px] w-[800px] rounded-full bg-blue-500/[0.03] dark:bg-blue-500/[0.05] blur-[150px]"
         />
       </div>
 

@@ -3,16 +3,48 @@
 :root {
     --font-outfit: 'Outfit', sans-serif;
     --font-inter: 'Inter', sans-serif;
+
+    /* Light Mode Variables */
+    --bg-color: #f8fafc;
+    --text-primary: #0f172a;
+    --text-secondary: #334155;
+    /* Slate 700 - Better contrast */
+    --accent-primary: #6d28d9;
+    /* Violet 700 - Better contrast */
+    --accent-secondary: #be185d;
+    /* Pink 700 */
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(0, 0, 0, 0.08);
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
 }
+
+.dark {
+    /* Dark Mode Variables */
+    --bg-color: #030014;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent-primary: #a78bfa;
+    --accent-secondary: #f472b6;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --bg-gradient: radial-gradient(circle at top center, #070313, #030014);
+}
+
 
 html,
 body {
     height: 100%;
     margin: 0;
     font-family: var(--font-outfit);
-    background-color: #070313;
-    color: white;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 
 @media (min-width: 768px) {
 
@@ -35,8 +67,9 @@ body {
 }
 
 body::selection {
-    background-color: rgba(168, 85, 247, 0.2);
-    color: white;
+    background-color: var(--accent-primary);
+    color: var(--text-primary);
+    opacity: 0.2;
 }
 
 h1,
@@ -56,9 +89,9 @@ a {
 
 .glass {
     backdrop-filter: blur(40px);
-    background-color: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    background-color: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
 }
 
 ::-webkit-scrollbar {
@@ -66,17 +99,17 @@ a {
 }
 
 ::-webkit-scrollbar-track {
-    background: #070313;
+    background: var(--bg-color);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #1a1528;
+    background: var(--glass-border);
     border-radius: 5px;
-    border: 2px solid #070313;
+    border: 2px solid var(--bg-color);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #2a2538;
+    background: var(--accent-primary);
 }
 
 @keyframes scroll {

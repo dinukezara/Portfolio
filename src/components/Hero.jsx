@@ -19,19 +19,19 @@ export default function Hero() {
           </Reveal>
 
           <Reveal delay={0.2}>
-            <h1 className="mt-6 text-6xl sm:text-7xl font-black leading-[1.1] tracking-tight text-white">
-              <span className="text-white/70">I'm </span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-400 to-pink-400">
+            <h1 className="mt-6 text-6xl sm:text-7xl font-black leading-[1.1] tracking-tight text-[var(--text-primary)]">
+              <span className="opacity-70">I'm </span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-fuchsia-500 to-pink-500 dark:from-purple-400 dark:via-fuchsia-400 dark:to-pink-400">
                 {hero.name}
               </span>
             </h1>
-            <h2 className="text-3xl sm:text-4xl font-bold mt-4 text-white/90">
+            <h2 className="text-3xl sm:text-4xl font-bold mt-4 text-[var(--text-primary)] opacity-90">
               {hero.role}
             </h2>
           </Reveal>
 
           <Reveal delay={0.3}>
-            <p className="mt-6 text-white/60 text-lg leading-relaxed max-w-xl font-medium">
+            <p className="mt-6 text-[var(--text-secondary)] text-lg leading-relaxed max-w-xl font-medium">
               {hero.description}
             </p>
           </Reveal>
@@ -42,7 +42,7 @@ export default function Hero() {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 href="#projects"
-                className="px-8 py-4 rounded-full bg-white text-black font-black flex items-center gap-2 transition-shadow hover:shadow-[0_0_30px_-5px_rgba(255,255,255,0.4)]"
+                className="px-8 py-4 rounded-full bg-slate-900 dark:bg-white text-white dark:text-black font-black flex items-center gap-2 transition-shadow hover:shadow-[0_0_30px_-5px_rgba(124,58,237,0.4)] dark:hover:shadow-[0_0_30px_-5px_rgba(255,255,255,0.4)]"
               >
                 Explore Work <ExternalLink size={18} />
               </motion.a>
@@ -53,7 +53,7 @@ export default function Hero() {
                 href={getAssetUrl(hero.cvUrl)}
                 target="_blank"
                 rel="noreferrer"
-                className="px-8 py-4 rounded-full border border-white/10 glass text-white font-black flex items-center gap-2 transition-all hover:bg-white/5"
+                className="px-8 py-4 rounded-full border border-[var(--glass-border)] bg-[var(--glass-bg)] backdrop-blur-md text-[var(--text-primary)] font-black flex items-center gap-2 transition-all hover:bg-[var(--glass-border)]"
               >
                 Download CV <Download size={18} />
               </motion.a>
@@ -71,7 +71,7 @@ export default function Hero() {
                     href={social.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="h-12 w-12 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-all shadow-xl"
+                    className="h-12 w-12 rounded-full border border-[var(--glass-border)] bg-[var(--glass-bg)] flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent-primary)] transition-all shadow-lg"
                   >
                     <social.icon size={20} />
                   </motion.a>
@@ -81,9 +81,9 @@ export default function Hero() {
           </Reveal>
 
           <Reveal delay={0.5}>
-            <div className="mt-12 pt-10 border-t border-white/5 flex flex-wrap gap-3">
+            <div className="mt-12 pt-10 border-t border-[var(--glass-border)] flex flex-wrap gap-3">
               {hero.tags.map((t) => (
-                <span key={t} className="text-xs font-bold text-white/40 uppercase tracking-widest">
+                <span key={t} className="text-xs font-bold text-[var(--text-secondary)] opacity-40 uppercase tracking-widest">
                   {t} •
                 </span>
               ))}
@@ -99,10 +99,10 @@ export default function Hero() {
           className="relative lg:ml-auto"
         >
           {/* Decorative glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-purple-500/30 blur-[120px] rounded-full -z-10 animate-pulse"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[var(--accent-primary)] opacity-10 blur-[120px] rounded-full -z-10 animate-pulse"></div>
 
           <div className="relative aspect-square rounded-full p-1.5 bg-gradient-to-tr from-purple-500 via-fuchsia-500 to-pink-500 shadow-2xl group max-w-[450px]">
-            <div className="relative w-full h-full rounded-full p-1 bg-[#070313] overflow-hidden">
+            <div className="relative w-full h-full rounded-full p-1 bg-[var(--bg-color)] overflow-hidden">
               <motion.img
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.8 }}
@@ -118,17 +118,18 @@ export default function Hero() {
           <motion.div
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -bottom-6 -left-6 glass px-6 py-4 rounded-2xl flex items-center gap-3 border border-white/10 shadow-2xl"
+            className="absolute -bottom-6 -left-6 bg-[var(--glass-bg)] backdrop-blur-xl px-6 py-4 rounded-2xl flex items-center gap-3 border border-[var(--glass-border)] shadow-2xl"
           >
-            <div className="h-10 w-10 rounded-xl bg-purple-600 flex items-center justify-center text-white shadow-lg shadow-purple-500/50">
+            <div className="h-10 w-10 rounded-xl bg-[var(--accent-primary)] flex items-center justify-center text-white shadow-lg shadow-purple-500/50">
               <User size={20} />
             </div>
             <div>
-              <p className="text-[10px] uppercase tracking-wider text-white/40 font-bold">Interactive</p>
-              <p className="text-sm font-black">User Experience</p>
+              <p className="text-[10px] uppercase tracking-wider text-[var(--text-secondary)] opacity-60 font-bold">Interactive</p>
+              <p className="text-sm font-black text-[var(--text-primary)]">User Experience</p>
             </div>
           </motion.div>
         </motion.div>
+
       </div>
     </section>
   );
