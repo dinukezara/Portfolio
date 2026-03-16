@@ -79,6 +79,22 @@ export const portfolioData = {
             note: "Event Committee",
             images: "/images/IEEE_CS.jpeg",
         },
+
+        {
+            role: "Committee Member",
+            org: "IEEE Industry Applications Society",
+            year: "2026 - 2027",
+            note: "Finance Committee",
+            images: "/images/IAS.jpeg",
+        },
+
+        {
+            role: "Committee Co-Lead",
+            org: "IEEE Computational Intelligence Society",
+            year: "2026 - 2027",
+            note: "Finance Committee",
+            images: "/images/CIS.jpeg",
+        },
     ],
     events: [
         {
