@@ -98,6 +98,27 @@ export const portfolioData = {
     ],
     events: [
         {
+            role: "Committee Lead",
+            org: "OctWave 3.0",
+            year: "2026",
+            note: "Finance committee",
+            images: "/images/OctWave.jpg",
+        },
+        {
+            role: "Committee Lead",
+            org: "Mind Modles",
+            year: "2026",
+            note: "Finance committee",
+            images: "/images/Mindmodels.jpg",
+        },
+        {
+            role: "Committee Member",
+            org: "MoraForesight 4.0",
+            year: "2026",
+            note: "Finance committee",
+            images: "/images/Foresight.jpg",
+        },
+        {
             role: "Committee Member",
             org: "Binara Padura 4.0 (Rotaract UOM)",
             year: "2025",
@@ -156,6 +177,28 @@ export const portfolioData = {
             org: "IEEE Computer Society, University of Ruhuna",
             year: "2025",
             desc: "Won third place in a competitive coding hackathon by solving algorithmic challenges on HackerRank.",
+            icon: "Award"
+        },
+        {
+        id: 2,
+            title: "Launch'26",
+            org: "IEEE Computer Society, University of Kelaniya",
+            year: "2026",
+            desc: "Won third place in a competitive Datathon.",
+            icon: "Award"
+        },
+        {id: 3,
+            title: "BitCode V6.0",
+            org: "Business Information Technology Students' Association, University of Rajarata",
+            year: "2026",
+            desc: "Selected to the final round.",
+            icon: "Award"
+        },
+        {id: 4,
+            title: "Codemania V6.0",
+            org: "IEEE Student Branch, SLTC",
+            year: "2026",
+            desc: "Selected to the final round.",
             icon: "Award"
         },
     ],
