@@ -14,7 +14,7 @@ export const portfolioData = {
         name: "Dinuka Withanage",
         role: "Undergraduate, Department of Computer Science and Engineering, University of Moratuwa",
         description: "I’m a Data Scientist and Software Engineer specializing in building intelligent, scalable applications. I combine machine learning, data analysis, and full-stack development to transform raw data into meaningful digital solutions.",
-        profileImage: "/images/profile.png",
+        profileImage: "/images/profile.jpeg",
         cvUrl: "/CV.pdf", // Add your CV link here (e.g., "/cv.pdf" or a Google Drive link)
         tags: ["React", "Node.js", "MySQL", "Python", "ML Basics"],
     },
@@ -23,7 +23,7 @@ export const portfolioData = {
         description1: "I am an undergraduate in the Department of Computer Science and Engineering at the University of Moratuwa, currently specializing in the Data Science stream. I am passionate about combining software engineering with data-driven technologies to build intelligent and scalable systems.",
         description2: "My interests lie in machine learning, data analysis, and full-stack development. I enjoy transforming complex data into meaningful insights and developing practical software solutions that solve real-world problems.",
         description3: "With a strong foundation in computer science and a commitment to continuous learning, I strive to build innovative, efficient, and impactful digital solutions.",
-        image: "/images/profile.png",
+        image: "/images/profile.jpeg",
     },
     projects: [
         {
