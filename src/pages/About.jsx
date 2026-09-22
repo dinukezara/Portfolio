@@ -1,83 +1,119 @@
-import Skills from "../components/Skills";
-import { portfolioData } from "../data/portfolioData";
-import { Reveal } from "../components/Reveal";
-import { motion } from "framer-motion";
-import { getAssetUrl } from "../utils/assetHelper";
+import { motion } from 'framer-motion'
+import { portfolioData } from '../data/portfolioData'
+import { getAssetUrl } from '../utils/assetHelper'
+import ScrollReveal from '../components/ui/ScrollReveal'
+import MagneticButton from '../components/ui/MagneticButton'
+import { Link } from 'react-router-dom'
+import { Download } from 'lucide-react'
 
 export default function About() {
-    const { about } = portfolioData;
+  const { about, hero, skills } = portfolioData
 
-    return (
-        <div className="pt-24 pb-32 min-h-screen text-[var(--text-primary)] relative">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <Reveal>
-                    <span className="text-[var(--accent-primary)] font-bold tracking-[0.4em] uppercase text-xs mb-4 block">Designer & Engineer</span>
-                    <h1 className="text-6xl sm:text-8xl font-black mb-16 tracking-tighter leading-[0.9]">
-                        About <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-fuchsia-600 dark:from-purple-400 dark:to-fuchsia-500">Me</span>
-                    </h1>
-                </Reveal>
+  const techCategories = [
+    { cat: 'Frontend', items: ['React', 'HTML', 'CSS', 'JavaScript'] },
+    { cat: 'Backend', items: ['Node.js', 'Express', 'Python'] },
+    { cat: 'Database', items: ['MySQL', 'MongoDB'] },
+    { cat: 'ML / AI', items: ['ML Basics', 'Pandas', 'NumPy'] },
+  ]
 
-                <div className="grid lg:grid-cols-12 gap-20 items-start">
-                    <div className="lg:col-span-5">
-                        <Reveal delay={0.2} width="100%">
-                            <div className="relative group">
-                                <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-fuchsia-600 rounded-[42px] blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
-                                <div className="relative rounded-[40px] overflow-hidden border border-[var(--glass-border)] bg-[var(--glass-bg)] aspect-[3/4] shadow-2xl backdrop-blur-xl">
-                                    <motion.img
-                                        whileHover={{ scale: 1.05 }}
-                                        transition={{ duration: 0.8 }}
-                                        src={getAssetUrl(about.image)}
-                                        alt={portfolioData.hero.name}
-                                        className="w-full h-full object-cover object-top transition-all duration-700"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-color)] via-transparent to-transparent opacity-60"></div>
-                                </div>
+  return (
+    <div className="min-h-screen bg-ink-950">
+      {/* Hero */}
+      <section className="pt-40 pb-24 px-6 md:px-12 max-w-7xl mx-auto">
+        <ScrollReveal>
+          <p className="font-mono text-xs text-signal uppercase tracking-widest mb-6">About Me</p>
+          <h1 className="font-display text-7xl md:text-[8rem] lg:text-[10rem] leading-[0.9] tracking-tight mb-16" data-cursor="hover">
+            <span className="text-white">Who</span><br />
+            <span className="text-stroke">I am.</span>
+          </h1>
+        </ScrollReveal>
 
-                                <div className="absolute -bottom-8 -right-8 h-40 w-40 bg-[var(--accent-primary)] opacity-10 rounded-full blur-3xl -z-10 animate-pulse"></div>
-                            </div>
-                        </Reveal>
-                    </div>
-
-                    <div className="lg:col-span-7 flex flex-col justify-center pt-8 lg:pt-0">
-                        <div className="space-y-10">
-                            <Reveal delay={0.3}>
-                                <h3 className="text-2xl font-black tracking-tight text-[var(--text-primary)] opacity-90">Curating digital experiences with data and design.</h3>
-                                <p className="mt-4 text-[var(--text-secondary)] leading-relaxed text-xl font-medium">
-                                    {about.description1}
-                                </p>
-                            </Reveal>
-
-                            <Reveal delay={0.4}>
-                                <div className="p-8 rounded-[32px] bg-[var(--glass-bg)] border border-[var(--glass-border)] relative group hover:border-purple-500/20 transition-all duration-500 shadow-xl backdrop-blur-md">
-                                    <div className="absolute top-4 left-4 opacity-10 group-hover:opacity-20 transition-opacity text-[var(--accent-primary)]">
-                                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C20.1216 16 21.017 15.1046 21.017 14V11C21.017 9.89543 20.1216 9 19.017 9H16.017C14.9124 9 14.017 8.10457 14.017 7V4H20.017V21H14.017ZM3.0166 21V4H9.0166V7C9.0166 8.10457 8.12117 9 7.0166 9H4.0166C2.91203 9 2.0166 9.89543 2.0166 11V14C2.0166 15.1046 2.91203 16 4.0166 16H7.0166C8.12117 16 9.0166 16.8954 9.0166 18V21H3.0166Z" /></svg>
-                                    </div>
-                                    <p className="text-[var(--text-primary)] opacity-80 leading-relaxed text-lg italic relative z-10">
-                                        "{about.description2}"
-                                    </p>
-                                </div>
-                            </Reveal>
-
-                            <Reveal delay={0.5}>
-                                <p className="text-[var(--text-secondary)] leading-relaxed text-lg font-medium">
-                                    {about.description3}
-                                </p>
-                            </Reveal>
-
-                            <div className="pt-12">
-                                <Reveal delay={0.6}>
-                                    <div className="flex items-center gap-4 mb-8">
-                                        <h3 className="text-xs font-black uppercase tracking-[0.4em] text-[var(--text-secondary)] opacity-40">Technical Expertise</h3>
-                                        <div className="h-px flex-grow bg-[var(--glass-border)]"></div>
-                                    </div>
-                                    <Skills mode="grid" />
-                                </Reveal>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        {/* Bio + Image Grid */}
+        <div className="grid lg:grid-cols-12 gap-16 items-start mt-16">
+          {/* Image */}
+          <ScrollReveal delay={0.1} className="lg:col-span-4">
+            <div className="relative group">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-sm">
+                <img
+                  src={getAssetUrl(about.image)}
+                  alt={hero.name}
+                  className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink-950/60 to-transparent" />
+              </div>
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-signal/20 rounded-full blur-xl pointer-events-none" />
+              <div className="absolute -top-4 -left-4 w-16 h-16 border border-signal/20 rounded-full pointer-events-none" />
             </div>
-        </div>
+          </ScrollReveal>
 
-    );
+          {/* Text */}
+          <div className="lg:col-span-8 flex flex-col gap-12">
+            <ScrollReveal delay={0.2}>
+              <h2 className="font-display text-3xl md:text-4xl font-medium leading-tight mb-6">
+                Curating digital experiences with data and design.
+              </h2>
+              <div className="flex flex-col gap-6 text-mist-900 text-lg leading-relaxed">
+                <p>{about.description1}</p>
+                <p>"{about.description2}"</p>
+                <p>{about.description3}</p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.3}>
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href={hero.cvUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-8 py-4 bg-signal text-ink-950 font-display font-semibold rounded-full hover:shadow-[0_0_30px_rgba(232,255,71,0.3)] transition-all"
+                  data-cursor="hover"
+                >
+                  <Download size={16} />
+                  Download CV
+                </a>
+                <Link
+                  to="/contact"
+                  className="flex items-center gap-2 px-8 py-4 border border-white/20 text-mist-500 rounded-full hover:border-white/60 hover:text-white transition-all text-sm"
+                  data-cursor="hover"
+                >
+                  Get In Touch →
+                </Link>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Grid */}
+      <section className="py-32 bg-ink-900 border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <ScrollReveal className="mb-20">
+            <p className="font-mono text-xs text-signal uppercase tracking-widest mb-4">Technical Skills</p>
+            <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight">My tech stack.</h2>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+            {techCategories.map((cat, i) => (
+              <ScrollReveal key={cat.cat} delay={i * 0.1}>
+                <h3 className="font-mono text-xs text-signal uppercase tracking-widest mb-6 border-b border-white/5 pb-4">
+                  {cat.cat}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {cat.items.map(item => (
+                    <motion.span
+                      key={item}
+                      whileHover={{ scale: 1.05, backgroundColor: '#e8ff47', color: '#04040a', borderColor: '#e8ff47' }}
+                      className="font-mono text-xs px-4 py-2 rounded-full border border-white/10 text-mist-500 cursor-default transition-colors"
+                    >
+                      {item}
+                    </motion.span>
+                  ))}
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  )
 }
